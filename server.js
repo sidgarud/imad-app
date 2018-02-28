@@ -1,7 +1,18 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-
+var content={
+    title: 'content',
+    content:
+    `<p>Content</p>
+    
+    <p>Content</p>
+            
+    <p>Content</p>
+            
+    <p>Content</p>`
+    
+};
 var app = express();
 app.use(morgan('combined'));
 

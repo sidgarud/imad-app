@@ -1,17 +1,34 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var articleOne={
-    title: 'Article 1',
-    content:
-    `<p>Content</p>
-    
-    <p>Content</p>
-            
-    <p>Content</p>
-            
-    <p>Content</p>`
-    
+
+var article={
+    articleOne
+    :{
+        title: 'Article 1',
+        content:
+        `<p>Content</p>
+        
+        <p>Content</p>
+                
+        <p>Content</p>
+                
+        <p>Content</p>`
+
+    },
+    articleTwo
+    :{
+        title: 'Article 2',
+        content:
+        `<p>Content</p>
+        
+        <p>Content</p>
+                
+        <p>Content</p>
+                
+        <p>Content</p>`
+        
+    },
 };
 function createTemplate (data){
 var title=data.title;

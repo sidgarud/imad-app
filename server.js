@@ -33,7 +33,7 @@ var articles={
     }
 };
 
-function createTemplate (data){
+function createTemplate (data) {
 var title=data.title;
 var content=data.content;
 var htmlTemplate=`

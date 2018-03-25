@@ -8,7 +8,24 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articleOne=
+{
+    content:`<p>This is my first article. Retrial</p>`
+};
 
+function createTemplate (data) {
+    var content=data.content;
+    
+    var htmlTemplate = 
+    `<html>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="/ui/style.css" rel="stylesheet" />
+        <div class="container">
+        ${content}
+        </div>
+    </html>`;
+    return htmlTemplate;
+}
 /*var articles = {
 'article-one' : {
     title: "Article-one",
@@ -89,7 +106,7 @@ app.get('/', function(req,res){
 });  
 
 app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+  res.send(createTemplate(articleOne));
 });
 
 app.get('/article-two', function (req, res) {

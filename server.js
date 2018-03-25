@@ -2,11 +2,9 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 
-
-
-
 var app = express();
 app.use(morgan('combined'));
+
 
 var articles = 
 {
@@ -23,7 +21,8 @@ var articles =
         content:`<p>This is my third article. Retrial</p>`
     }
 };    
-function createTemplate (data) {
+function createTemplate (data) 
+{
         var content=data.content;
         
         var htmlTemplate = 
@@ -37,81 +36,6 @@ function createTemplate (data) {
         return htmlTemplate;
 }
 
-/*var articles = {
-'article-one' : {
-    title: "Article-one",
-                heading: "Article-one",
-                date: "25th Feb, 2018",
-                content:
-                
-                `<p>This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.</p>
-                     <p>This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.</p>
-                     <p>This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.
-                     </p>`
-},
-
-'article-two' : {title: "Article-two",
-                heading: "Article-two",
-                date: "26th Feb, 2018",
-                content:
-                `<p>This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.</p>
-                     `},
-   
-'article-three' : {title: "Article-three",
-                heading: "Article-three",
-                date: "27th Feb, 2018",
-                content:
-                
-                `<p>This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.</p>
-                     <p>This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.</p>
-                     <p>This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.</p>`}
-};
-
-function createTemplate (data) {
-    
-    var title=data.title;
-    var heading=data.heading;
-    var date=data.date;
-    var content=data.content;
-
-    var htmlTemplate = `    
-    <html>
-            <head>
-                <title>${title}</title>
-               <meta charset="utf-8" />
-            <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-           <link href="/ui/style.css" rel="stylesheet"/>
-            </head>
-            <body>
-                <div class="container">
-                    <div>
-                    <a href="/">Home</a>
-                   
-                    </div>
-                     <hr/>
-                     <h3>${heading}</h3>
-                     <div>${date}</div>
-                     <div>
-                         ${content}
-                     </div>
-                    </div>
-                </body>
-        </html>
-`;
-return htmlTemplate;
-}
-
-
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
-
-app.get('/:articleName', function(req,res){
-     var articleName = req.params.articlename;
-     res.send(createTemplate(articles[articleName]));
-});
-*/
 app.get('/', function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });  
@@ -121,14 +45,6 @@ app.get('/:articleName', function (req, res) {
   res.send(createTemplate(articles[articleName]));
 });
 
-/*app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
-*/
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });

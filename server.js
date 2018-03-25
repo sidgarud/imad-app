@@ -10,15 +10,15 @@ var articles =
 {
     'article-one':
     {
-        content:`<p>This is my first article. Retrial</p>`
+        'content':`<p>This is my first article. Retrial</p>`
     },
     'article-two':
     {
-        content:`<p>This is my second article. Retrial</p>`
+        'content':`<p>This is my second article. Retrial</p>`
     },
     'article-three':
     {
-        content:`<p>This is my third article. Retrial</p>`
+        'content':`<p>This is my third article. Retrial</p>`
     }
 };    
 function createTemplate (data) 

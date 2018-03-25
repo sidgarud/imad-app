@@ -10,7 +10,7 @@ var articles =
 {
     'article-one':
     {
-        content:`<p>This is my first article. Retrial</p>`
+        content:'<p>This is my first article. Retrial</p>'
     },
     'article-two':
     {

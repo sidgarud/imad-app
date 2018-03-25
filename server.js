@@ -8,24 +8,35 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne=
+var articles = 
 {
-    content:`<p>This is my first article. Retrial</p>`
-};
-
+    'article-one':
+    {
+        content:`<p>This is my first article. Retrial</p>`
+    },
+    'article-two':
+    {
+        content:`<p>This is my second article. Retrial</p>`
+    },
+    'article-three':
+    {
+        content:`<p>This is my third article. Retrial</p>`
+    }
+};    
 function createTemplate (data) {
-    var content=data.content;
-    
-    var htmlTemplate = 
-    `<html>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="/ui/style.css" rel="stylesheet" />
-        <div class="container">
-        ${content}
-        </div>
-    </html>`;
-    return htmlTemplate;
+        var content=data.content;
+        
+        var htmlTemplate = 
+        `<html>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link href="/ui/style.css" rel="stylesheet" />
+            <div class="container">
+            ${content}
+            </div>
+        </html>`;
+        return htmlTemplate;
 }
+
 /*var articles = {
 'article-one' : {
     title: "Article-one",
@@ -105,18 +116,19 @@ app.get('/', function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });  
 
-app.get('/article-one', function (req, res) {
-  res.send(createTemplate(articleOne));
+app.get('/:articleName', function (req, res) {
+  var articleName = req.params.articlename;
+  res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/article-two', function (req, res) {
+/*app.get('/article-two', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
 });
 
 app.get('/article-three', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
 });
-
+*/
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });

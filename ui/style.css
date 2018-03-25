@@ -20,11 +20,10 @@ body {
     height: 200px;
 }
 
-.test {
-    max-width:800px;
-    margin: 0 auto;
-    color: grey;
-    font-family:comic sans;
-    padding-left: 20px;
-    padding-right: 20px;
-}
+.container
+        {
+            max-width: 800px;
+            margin: 0 auto;
+            color: grey;
+            font-family: sans-serif;
+        }
